@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>Weather App</h1>
+            <input type="text" v-model="city" @input="fetchWeather" placeholder="Enter city">
+        </header>
+        <main>
+            <div class="weather-card" v-if="weather">
+                <h2>{{ weather.city }}</h2>
+                <div class="weather-details">
+                    <p>{{ weather.description }}</p>
+                    <p>Temperature: {{ weather.temperature }}°C</p>
+                    <p>Humidity: {{ weather.humidity }}%</p>
+                    <p>Wind: {{ weather.wind }} km/h</p>
+                </div>
+            </div>
+            <div v-else>
+                <p>No data available. Please enter a valid city.</p>
+            </div>
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3.2.31/dist/vue.global.prod.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
